@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentación introductoria sobre el modelo de caja de CSS.">
+  <title>Documentación técnica de CSS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="top">
+  <nav id="navbar" aria-label="Navegación principal">
+    <div class="head">
+      <img
+        class="logo"
+        src="https://cdn-icons-png.flaticon.com/128/5968/5968242.png"
+        alt=""
+      >
+      <span>Documentación técnica CSS</span>
+    </div>
+
+    <ul id="navlink">
+      <li><a href="#box-model" class="nav-link">Box model</a></li>
+      <li><a href="#elementos-box-model" class="nav-link">Elementos del box model</a></li>
+      <li><a href="#propiedades-css" class="nav-link">Propiedades CSS básicas</a></li>
+      <li><a href="#box-sizing" class="nav-link">Box sizing</a></li>
+      <li><a href="#reset-universal" class="nav-link">Reset universal</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-doc">
+    <section class="main-section" id="box-model">
+      <h1 class="box-model">Box model</h1>
+      <p>El box model (o modelo de caja) es el principio que define cómo el navegador representa cada elemento HTML como una caja rectangular.</p>
+      <p>Cada caja está formada por varias capas que determinan su tamaño y el espacio que ocupa.</p>
+      <p>Por ejemplo:</p>
+      <pre><code>.caja-estandar {
+  box-sizing: content-box;
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 15px;
+}</code></pre>
+    </section>
+
+    <section class="main-section" id="elementos-box-model">
+      <h2 class="elementos">Elementos del box model</h2>
+      <p>El modelo de caja está compuesto por estos elementos:</p>
+      <ul>
+        <li><strong>Contenido (content):</strong> es donde se muestra el texto, las imágenes u otros elementos. Sus dimensiones se controlan con las propiedades <code>width</code> y <code>height</code>.</li>
+        <li><strong>Relleno (padding):</strong> es el espacio interno entre el contenido y el borde.</li>
+        <li><strong>Borde (border):</strong> es la línea que rodea el contenido y el relleno. Se pueden definir su estilo, grosor y color.</li>
+        <li><strong>Margen (margin):</strong> es el espacio externo que separa la caja de otros elementos.</li>
+      </ul>
+      <p>Un ejemplo de estas propiedades:</p>
+      <pre><code>.caja {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+  margin: 15px;
+}</code></pre>
+    </section>
+
+    <section class="main-section" id="propiedades-css">
+      <h2 class="propiedades">Propiedades CSS básicas</h2>
+      <p>En el ejemplo anterior:</p>
+      <ul>
+        <li>La caja tiene un ancho de contenido de 300 px.</li>
+        <li>El relleno es de 20 px entre el contenido y el borde.</li>
+        <li>El borde es negro, sólido y de 5 px de grosor.</li>
+        <li>El margen es de 15 px alrededor de la caja.</li>
+      </ul>
+      <p>También puedes definir cada lado por separado:</p>
+      <pre><code>.mi-caja {
+  width: 300px;
+  height: 150px;
+
+  padding-top: 10px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+
+  margin-top: 10px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  box-sizing: border-box;
+}</code></pre>
+    </section>
+
+    <section class="main-section" id="box-sizing">
+      <h2 class="box-sizing">Box sizing</h2>
+      <p>La propiedad <code>box-sizing</code> determina cómo se calcula el tamaño de una caja. Sus valores más comunes son:</p>
+      <ul>
+        <li><strong>content-box:</strong> el ancho y alto indicados corresponden al contenido. El relleno y el borde se suman al tamaño total.</li>
+        <li><strong>border-box:</strong> el ancho y alto indicados incluyen el contenido, el relleno y el borde.</li>
+      </ul>
+      <p>Por ejemplo, con <code>content-box</code>, un ancho de 100 px, un relleno de 10 px por lado y un borde de 1 px por lado ocupan 122 px en total. Con <code>border-box</code>, el ancho total se mantiene en 100 px.</p>
+      <pre><code>/* content-box */
+.caja-estandar {
+  box-sizing: content-box;
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+}
+
+/* border-box */
+.caja-border-box {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+}</code></pre>
+    </section>
+
+    <section class="main-section" id="reset-universal">
+      <h2 class="reset">Reset universal</h2>
+      <p>Una regla habitual es usar <code>border-box</code> para que el ancho y alto declarados incluyan el relleno y el borde. Así resulta más sencillo controlar las dimensiones de los elementos.</p>
+      <pre><code>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}</code></pre>
+    </section>
+  </main>
+
+  <a href="#top" id="btnSubir" class="btn-top" aria-label="Volver al inicio">↑</a>
+</body>
+</html>
